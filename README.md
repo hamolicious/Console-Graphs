@@ -3,13 +3,13 @@ A simple file that can be imported and used to create graphs inside of the conso
 
 <br>
 <a href="https://github.com/hamolicious/Console-Graphs/blob/master/table_example.py"><h3>Table example</h3></a>
-<p>
+<pre>
 Features:<br>
-  <li> Auto sizing
-  <li> Super simple creation and display
-  <li> Cross-platform colour enabled
-  <li> Automatic totals, modes and means calculations
-</p>
+  - Auto sizing
+  - Super simple creation and display
+  - Cross-platform colour enabled
+  - Automatic totals, modes and means calculations
+</pre>
 <img src="https://github.com/hamolicious/Console-Graphs/blob/master/Screenshots/table_exampe_screenshot.PNG?raw=true">
 
 
