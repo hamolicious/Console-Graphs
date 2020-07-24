@@ -1,4 +1,5 @@
 from os import system
+from math import sin, cos, radians, sqrt
 
 # region colours
 def fg(color):
@@ -22,6 +23,16 @@ class Colours():
     header = bg(23)
 # endregion
 
+def map_to_range(value, leftMin, leftMax, rightMin, rightMax):
+    # Figure out how 'wide' each range is
+    leftSpan = leftMax - leftMin
+    rightSpan = rightMax - rightMin
+
+    # Convert the left range into a 0-1 range (float)
+    valueScaled = float(value - leftMin) / float(leftSpan)
+
+    # Convert the 0-1 range into a value in the right range.
+    return rightMin + (valueScaled * rightSpan)
 
 def generate_table_cap(mode, width):
     if mode == 'top':
@@ -183,7 +194,64 @@ class Table():
         """
         print(self.output)
 
+class Pie_Chart():
+    def __init__(self, data, radius, use_colour=True):
+        self.data = data
+        self.radius = radius
+        self.canvas_size = (radius*2) + 5
 
+        if use_colour : system('color')
+
+        self.output = Colours.error + 'Please update the chart' + reset()
+
+        self.temp = True
+
+    def create_canvas(self):
+        self.output = []
+
+        for _ in range(self.canvas_size):
+            row = []
+            for _ in range(self.canvas_size):
+                row.append('  ' + reset())
+            self.output.append(row)
+
+    def add_sector(self, angle_min, angle_max, colour):
+        for angle in range(int(angle_min), int(angle_max)):
+            for rad in range(self.radius, 0, -1):
+                x = int((rad * cos(radians(angle))) + self.canvas_size/2)
+                y = int((rad * sin(radians(angle))) + self.canvas_size/2)
+
+                self.output[y][x] = bg(colour) + '  '
+
+    def update(self):
+        self.create_canvas()
+
+        deg_start = 0
+        save = 0
+        for data in self.data:
+            val, colour = data
+
+            deg_end = map_to_range(val, 0, 100, 0, 360)
+            deg_end += save
+
+            self.add_sector(deg_start, deg_end, colour)
+
+            save = deg_end
+            deg_start = deg_end
+
+    def display(self):
+        temp = ''
+        for i in range(self.canvas_size):
+            for j in range(self.canvas_size):
+                temp += self.output[i][j]
+            temp += '\n' + reset()
+
+        print(temp)
+
+        for data in self.data:
+            val, colour = data
+
+            print((' ' * int(self.canvas_size)) + bg(colour) + '  ' + reset() + f'  Object: {val}%')
 
 
 
