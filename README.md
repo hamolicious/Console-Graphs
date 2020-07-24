@@ -11,7 +11,7 @@ Features:
   - Automatic totals, modes and means calculations
 </pre>
 <img src="https://github.com/hamolicious/Console-Graphs/blob/master/Screenshots/table_exampe_screenshot.PNG?raw=true">
-
+<hr>
 
 
 
