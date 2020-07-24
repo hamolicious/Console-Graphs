@@ -4,7 +4,7 @@ A simple file that can be imported and used to create graphs inside of the conso
 <br>
 <h3><a href="https://github.com/hamolicious/Console-Graphs/blob/master/table_example.py">Table example</a></h3>
 <pre>
-Features:<br>
+Features:
   - Auto sizing
   - Super simple creation and display
   - Cross-platform colour enabled
