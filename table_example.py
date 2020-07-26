@@ -56,7 +56,7 @@ table = Table(
 )
 
 table.update() # update to calculate the extra rows and sizing for the rows, fill out data and add colour
-table.display() # prints the table to the console
+table() # prints the table to the console or you can use table.display()
 
 print('\nThis example shows you how to use the table class')
 

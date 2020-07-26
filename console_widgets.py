@@ -96,6 +96,8 @@ class Table():
         self.data.append(data)
 
     def update(self):
+        data_copy = self.data.copy()
+
         rows = len(self.data)
         columns = len(self.data[0])
 
@@ -110,7 +112,7 @@ class Table():
 
         # calculate extra lines
         for i in range(rows):
-            data_row = self.data[i]
+            data_row = data_copy[i]
             for j in range(columns):
                 if type(totals[j]) is not str and type(data_row[j]) is not str:
                     totals[j] += data_row[j]
@@ -129,19 +131,19 @@ class Table():
                 modes[i] = sorted(modes[i])[int(length/2)]
 
         if self.add_total_row:
-            self.data.append(totals)
+            data_copy.append(totals)
         if self.add_mean_row:
-            self.data.append(means)
+            data_copy.append(means)
         if self.add_mode_row:
-            self.data.append(modes)
+            data_copy.append(modes)
 
-        rows = len(self.data)
-        columns = len(self.data[0])
+        rows = len(data_copy)
+        columns = len(data_copy[0])
 
         # calculate lengths
         data_lengths = [0 for _ in range(columns)]
         for i in range(rows):
-            data_row = self.data[i]
+            data_row = data_copy[i]
 
             for j in range(columns):
                 current_len = len(str(data_row[j]))
@@ -153,7 +155,7 @@ class Table():
         colour_flip_flop = True
         self.output = ''
         for i in range(rows):
-            data_row = self.data[i]
+            data_row = data_copy[i]
             stringed_row = '|'
 
             if   self.use_colour and i == 0               : colour = Colours.header
@@ -193,6 +195,12 @@ class Table():
         Prints the table
         """
         print(self.output)
+
+    def __call__(self):
+        """
+        The same as calling table.display()
+        """
+        self.display()
 
 class Pie_Chart():
     def __init__(self, data, radius, use_colour=True):
