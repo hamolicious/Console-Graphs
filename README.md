@@ -13,6 +13,15 @@ Features:
 <img src="https://github.com/hamolicious/Console-Graphs/blob/master/Screenshots/table_exampe_screenshot.PNG?raw=true">
 <hr>
 
+<br>
+<pre>
+Graphs I still want to add:
+ - Pie Chart (Currently in progress)
+ - Line Graph
+ - Scatter Graph
+ - Bar Graph
+</pre>
+
 
 
 
