@@ -14,13 +14,13 @@ Features:
 <hr>
 
 <br>
-<pre>
-Graphs I still want to add:
- - Pie Chart (Currently in progress)
- - Line Graph
- - Scatter Graph
- - Bar Graph
-</pre>
+
+## Graphs I still want to add:
+ - [ ] Pie Chart (Currently in progress)
+ - [ ] Line Graph
+ - [ ] Scatter Graph
+ - [ ] Bar Graph
+
 
 
 
